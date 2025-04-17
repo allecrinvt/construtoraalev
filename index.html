@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construtora ALEV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- ChatBot -->
+<div id="chatbot-container">
+  <div id="chat-header">Chat da Construtora ALEV</div>
+  <div id="chat-messages"></div>
+  <input type="text" id="chat-input" placeholder="Digite sua pergunta..." />
+  <button onclick="enviarMensagem()">Enviar</button>
+</div>
+
+<style>
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #999;
+    overflow: hidden;
+    z-index: 9999;
+    font-family: Arial;
+  }
+  #chat-header {
+    background-color: #1e88e5;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  #chat-input {
+    width: calc(100% - 80px);
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  #chatbot-container button {
+    width: 60px;
+    padding: 10px;
+    border: none;
+    background-color: #1e88e5;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const respostas = {
+    "quanto custa construir": "O valor pode variar, mas geralmente fica entre R$ 1.200 a R$ 2.500 por metro quadrado.",
+    "serviços": "Oferecemos assentamento de porcelanato, pintura, telhado, elétrica, hidráulica e mais!",
+    "atendente": "Você pode falar com um atendente pelo WhatsApp clicando aqui: https://wa.me/558695461229",
+    "orçamento": "Você pode fazer um orçamento pelo formulário acima ou chamar no WhatsApp.",
+    "oi": "Olá! Como posso ajudar você hoje?",
+    "olá": "Olá! Tudo bem? Pergunte algo sobre construção ou orçamento.",
+    "telefone": "Nosso número é (86) 99546-1229. Também atendemos pelo WhatsApp!"
+  };
+
+  function enviarMensagem() {
+    const input = document.getElementById("chat-input");
+    const mensagem = input.value.trim().toLowerCase();
+    if (!mensagem) return;
+
+    const chat = document.getElementById("chat-messages");
+    chat.innerHTML += `<div><strong>Você:</strong> ${mensagem}</div>`;
+
+    let resposta = "Desculpe, não entendi. Tente perguntar sobre serviços, orçamento ou atendimento.";
+
+    for (const chave in respostas) {
+      if (mensagem.includes(chave)) {
+        resposta = respostas[chave];
+        break;
+      }
+    }
+
+    chat.innerHTML += `<div><strong>Bot:</strong> ${resposta}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+    input.value = "";
+  }
+</script>
+
+
+<body>
+
+<header>
+  <div class="content">
+    <h1>CONSTRUTORA ALEV</h1>
+    <p>Da fundação ao acabamento, excelência em cada etapa.</p>
+    <p><strong>Atendimento 24 horas</strong></p>
+    <a href="https://wa.me/558695461229" target="_blank" class="cta-button">SOLICITE UM ORÇAMENTO</a>
+  </div>
+</header>
+
+<section>
+  <h2>QUEM SOMOS</h2>
+  <p>A Construtora ALEV é especializada em serviços de construção e reformas, oferecendo soluções completas há mais de 20 anos. Garantimos mão de obra qualificada e experiente em assentamento de porcelanatos, revestimentos, pintura, telhados, hidráulica, elétrica, serralheria e construções com tecnologia IPS. Nossa equipe comprometida assegura qualidade, eficiência e acabamentos impecáveis em cada projeto, sempre focados na satisfação e confiança de nossos clientes.</p>
+</section>
+
+<section>
+  <img src="banner2.png" alt="Serviços" style="width: 100%; max-height: 500px; object-fit: cover; margin-bottom: 30px;">
+  <h2>NOSSOS SERVIÇOS</h2>
+  <div class="services">
+    <div class="service"><h3>Assentamento de Porcelanatos</h3></div>
+    <div class="service"><h3>Revestimentos</h3></div>
+    <div class="service"><h3>Pintura</h3></div>
+    <div class="service"><h3>Telhados</h3></div>
+    <div class="service"><h3>Hidráulica</h3></div>
+    <div class="service"><h3>Elétrica</h3></div>
+    <div class="service"><h3>Serralheria</h3></div>
+    <div class="service"><h3>Construção com IPS</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2>VANTAGENS EM NOS CONTRATAR</h2>
+  <div class="advantages">
+    <div class="advantage"><h3>Orçamento pelo Celular</h3></div>
+    <div class="advantage"><h3>Serviço Rápido</h3></div>
+    <div class="advantage"><h3>Pagamento Facilitado</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2>ORÇAMENTO ONLINE</h2>
+  <div class="contact-form">
+    <form action="#" method="post">
+      <label for="name">Seu Primeiro Nome*</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Telefone*</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="message">Mensagem</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">ENVIAR</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p><strong>WhatsApp:</strong> (86) 99546-1229</p>
+  <p><strong>Email:</strong> alevconstrutoracivil@gmail.com</p>
+</footer>
+
+</body>
+</html>
