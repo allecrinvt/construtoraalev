@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- ChatBot -->
+<!-- Chatalev -->
 <div id="chatbot-container">
   <div id="chat-header">Chat da Construtora ALEV</div>
   <div id="chat-messages"></div>
@@ -60,13 +60,27 @@
 
 <script>
   const respostas = {
-    "quanto custa construir": "O valor pode variar, mas geralmente fica entre R$ 1.200 a R$ 2.500 por metro quadrado.",
+    "quanto custa construir": "O valor pode variar, mas geralmente fica entre R$ 1.200,00 a R$ 2.500,00 por metro quadrado, dependendo dos materiais, localização e tipo de construção.",
+    "preço para construir um cômodo": "Depende do tamanho e acabamento, mas um cômodo simples pode custar entre R$ 10.000,00 e R$ 30.000,00.",
+    "quanto custa uma laje": "O custo médio de uma laje simples gira em torno de R$ 90,00 a R$ 150,00 por metro quadrado, incluindo mão de obra e materiais.",
+    "quanto custa levantar um muro": "O preço médio para construir um muro é de R$ 180,00 a R$ 300,00 por metro linear, variando conforme o tipo de bloco ou tijolo usado.",
+    "reformar banheiro": "Uma reforma de banheiro simples pode custar a partir de R$ 3.000,00, podendo chegar a R$ 15.000,00, dependendo do projeto.",
+    "calcular orçamento": "O cálculo é feito com base na área construída, tipo de acabamento, projeto estrutural e custos de materiais e mão de obra.",
+    "orçamento gratuito": "Sim! Oferecemos orçamento gratuito e sem compromisso. Basta informar os detalhes do seu projeto.",
+    "preço fundação": "A fundação pode custar de R$ 100,00 a R$ 250,00 por metro quadrado, dependendo do tipo de solo e da estrutura.",
+    "parcelar obra": "Sim! Em alguns casos, oferecemos formas de parcelamento ou facilitamos o pagamento por etapas da obra.",
+    "quanto custa construir uma casa": "Geralmente, o custo de construção de uma casa varia entre R$ 1.200,00 e R$ 2.500,00 por metro quadrado.",
+    "quanto custa reformar uma casa": "Uma reforma pode custar de R$ 500,00 a R$ 1.500,00 por metro quadrado, dependendo da complexidade e dos materiais usados.",
+    "quanto custa construir área gourmet": "Uma área gourmet pode custar de R$ 15.000,00 a R$ 50.000,00, dependendo do tamanho, acabamentos e equipamentos incluídos.",
+    "quanto custa ampliar uma casa": "A ampliação de uma casa custa em média R$ 1.200,00 a R$ 2.000,00 por metro quadrado, variando com a estrutura e materiais.",
+    "quanto custa construir banheiro": "O custo médio para construir um banheiro novo fica entre R$ 7.000,00 e R$ 15.000,00.",
+    "quanto custa construir cozinha": "O valor para construir uma cozinha gira em torno de R$ 8.000,00 a R$ 20.000,00, variando conforme o tamanho e o padrão de acabamento.",
     "serviços": "Oferecemos assentamento de porcelanato, pintura, telhado, elétrica, hidráulica e mais!",
     "atendente": "Você pode falar com um atendente pelo WhatsApp clicando aqui: https://wa.me/558695461229",
     "orçamento": "Você pode fazer um orçamento pelo formulário acima ou chamar no WhatsApp.",
     "oi": "Olá! Como posso ajudar você hoje?",
     "olá": "Olá! Tudo bem? Pergunte algo sobre construção ou orçamento.",
-    "telefone": "Nosso número é (86) 99546-1229. Também atendemos pelo WhatsApp!"
+    "telefone": "Nosso número é +5561993692381. Também atendemos pelo WhatsApp!"
   };
 
   function enviarMensagem() {
@@ -77,7 +91,7 @@
     const chat = document.getElementById("chat-messages");
     chat.innerHTML += `<div><strong>Você:</strong> ${mensagem}</div>`;
 
-    let resposta = "Desculpe, não entendi. Tente perguntar sobre serviços, orçamento ou atendimento.";
+    let resposta = "Desculpe, não entendi. Tente perguntar algo como 'quanto custa construir uma casa' ou 'orçamento de fundação'.";
 
     for (const chave in respostas) {
       if (mensagem.includes(chave)) {
@@ -86,12 +100,22 @@
       }
     }
 
-    chat.innerHTML += `<div><strong>Bot:</strong> ${resposta}</div>`;
+    chat.innerHTML += `<div><strong>ALEV:</strong> ${resposta}</div>`;
     chat.scrollTop = chat.scrollHeight;
     input.value = "";
   }
-</script>
 
+  // Permitir envio com Enter
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("chat-input");
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        enviarMensagem();
+      }
+    });
+  });
+</script>
 
 <body>
 
@@ -100,7 +124,7 @@
     <h1>CONSTRUTORA ALEV</h1>
     <p>Da fundação ao acabamento, excelência em cada etapa.</p>
     <p><strong>Atendimento 24 horas</strong></p>
-    <a href="https://wa.me/558695461229" target="_blank" class="cta-button">SOLICITE UM ORÇAMENTO</a>
+    <a href="https://wa.me/+5561993692381" target="_blank" class="cta-button">SOLICITE UM ORÇAMENTO</a>
   </div>
 </header>
 
@@ -120,7 +144,8 @@
     <div class="service"><h3>Hidráulica</h3></div>
     <div class="service"><h3>Elétrica</h3></div>
     <div class="service"><h3>Serralheria</h3></div>
-    <div class="service"><h3>Construção com IPS</h3></div>
+    <div class="service"><h3>Construção com EPS</h3></div>
+    <div class="service"><h3>Impermealizaçao</h3></div>
   </div>
 </section>
 
@@ -152,7 +177,7 @@
 </section>
 
 <footer>
-  <p><strong>WhatsApp:</strong> (86) 99546-1229</p>
+  <p><strong>WhatsApp:</strong> +5561993692381</p>
   <p><strong>Email:</strong> alevconstrutoracivil@gmail.com</p>
 </footer>
 
